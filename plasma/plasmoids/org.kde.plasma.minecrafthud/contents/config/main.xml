@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+  <kcfgfile name=""/>
+  <group name="General">
+    <entry name="showClock" type="Bool">
+      <default>true</default>
+    </entry>
+    <entry name="showIndicators" type="Bool">
+      <default>true</default>
+    </entry>
+    <entry name="showHotbar" type="Bool">
+      <default>true</default>
+    </entry>
+    <entry name="hudScale" type="Double">
+      <default>1.0</default>
+    </entry>
+    <entry name="slot1Cmd" type="String">
+      <default>konsole</default>
+    </entry>
+    <entry name="slot2Cmd" type="String">
+      <default>kde-open https://google.com</default>
+    </entry>
+    <entry name="slot3Cmd" type="String">
+      <default>dolphin</default>
+    </entry>
+    <entry name="slot4Cmd" type="String">
+      <default>kate</default>
+    </entry>
+    <entry name="slot5Cmd" type="String">
+      <default>systemsettings</default>
+    </entry>
+    <entry name="slot6Cmd" type="String">
+      <default>plasma-systemmonitor</default>
+    </entry>
+    <entry name="slot7Cmd" type="String">
+      <default>elisa</default>
+    </entry>
+    <entry name="slot8Cmd" type="String">
+      <default>discover</default>
+    </entry>
+    <entry name="slot9Cmd" type="String">
+      <default>dolphin trash:/</default>
+    </entry>
+  </group>
+</kcfg>

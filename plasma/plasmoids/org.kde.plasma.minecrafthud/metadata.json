@@ -1,0 +1,19 @@
+{
+  "KPackageStructure": "Plasma/Applet",
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Minecraft KDE Rice"
+      }
+    ],
+    "Category": "System Information",
+    "Description": "Authentic Minecraft HUD desktop widget with Health (CPU/Battery), Hunger (RAM), Armor, XP Bar, 9-Slot Hotbar App Launcher, and Minecraft Day/Night Clock",
+    "EnabledByDefault": true,
+    "Icon": "grass_block",
+    "Id": "org.kde.plasma.minecrafthud",
+    "License": "MIT",
+    "Name": "Minecraft HUD",
+    "Website": "https://github.com/imyash0722/kde-minecraft-config"
+  },
+  "X-Plasma-API-Minimum-Version": "6.0"
+}

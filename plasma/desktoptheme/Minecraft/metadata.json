@@ -1,0 +1,15 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Minecraft KDE Team"
+            }
+        ],
+        "Description": "Authentic Minecraft UI Desktop Theme for KDE Plasma 6",
+        "Id": "Minecraft",
+        "License": "MIT",
+        "Name": "Minecraft",
+        "Version": "1.0"
+    },
+    "X-Plasma-FallbackTheme": "default"
+}

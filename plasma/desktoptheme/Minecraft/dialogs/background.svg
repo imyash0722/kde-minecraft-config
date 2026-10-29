@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <style type="text/css">
+      .outer { fill: #121314; }
+      .hi { fill: #7E7F81; }
+      .sh { fill: #232425; }
+      .bg { fill: #3A3B3D; }
+    </style>
+  </defs>
+
+  <!-- Hints -->
+  <rect id="hint-tile-center" x="0" y="0" width="0" height="0" fill="none"/>
+  <rect id="hint-top-margin" x="8" y="0" width="48" height="8" fill="none"/>
+  <rect id="hint-bottom-margin" x="8" y="56" width="48" height="8" fill="none"/>
+  <rect id="hint-left-margin" x="0" y="8" width="8" height="48" fill="none"/>
+  <rect id="hint-right-margin" x="56" y="8" width="8" height="48" fill="none"/>
+
+  <!-- Slices -->
+  <g id="center">
+    <rect class="bg" x="8" y="8" width="48" height="48"/>
+  </g>
+
+  <g id="top">
+    <rect class="outer" x="8" y="0" width="48" height="2"/>
+    <rect class="hi" x="8" y="2" width="48" height="6"/>
+  </g>
+
+  <g id="bottom">
+    <rect class="sh" x="8" y="56" width="48" height="6"/>
+    <rect class="outer" x="8" y="62" width="48" height="2"/>
+  </g>
+
+  <g id="left">
+    <rect class="outer" x="0" y="8" width="2" height="48"/>
+    <rect class="hi" x="2" y="8" width="6" height="48"/>
+  </g>
+
+  <g id="right">
+    <rect class="sh" x="56" y="8" width="6" height="48"/>
+    <rect class="outer" x="62" y="8" width="2" height="48"/>
+  </g>
+
+  <g id="topleft">
+    <rect class="outer" x="0" y="0" width="8" height="8"/>
+    <rect class="hi" x="2" y="2" width="6" height="6"/>
+  </g>
+
+  <g id="topright">
+    <rect class="outer" x="56" y="0" width="8" height="8"/>
+    <rect class="sh" x="56" y="2" width="6" height="6"/>
+    <rect class="hi" x="56" y="2" width="6" height="2"/>
+  </g>
+
+  <g id="bottomleft">
+    <rect class="outer" x="0" y="56" width="8" height="8"/>
+    <rect class="hi" x="2" y="56" width="2" height="6"/>
+    <rect class="sh" x="4" y="56" width="4" height="6"/>
+  </g>
+
+  <g id="bottomright">
+    <rect class="outer" x="56" y="56" width="8" height="8"/>
+    <rect class="sh" x="56" y="56" width="6" height="6"/>
+  </g>
+</svg>

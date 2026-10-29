@@ -1,0 +1,19 @@
+{
+  "KPackageStructure": "Plasma/LookAndFeel",
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Minecraft KDE Rice"
+      }
+    ],
+    "Category": "",
+    "Description": "Minecraft World Loading Splash and Look and Feel package for KDE Plasma 6",
+    "Id": "org.kde.minecraft.desktop",
+    "License": "GPLv3",
+    "Name": "Minecraft World Loading",
+    "Website": "https://github.com/imyash0722/kde-minecraft-config"
+  },
+  "Keywords": "Desktop;Workspace;Appearance;Look and Feel;Logout;Lock;Suspend;Shutdown;Hibernate;",
+  "X-Plasma-APIVersion": "2",
+  "X-Plasma-MainScript": "default"
+}

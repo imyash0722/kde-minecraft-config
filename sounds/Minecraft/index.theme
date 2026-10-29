@@ -1,0 +1,7 @@
+[Sound Theme]
+Name=Minecraft
+Comment=Authentic Minecraft Sound Theme for KDE Plasma
+Directories=stereo
+
+[stereo]
+OutputProfile=stereo

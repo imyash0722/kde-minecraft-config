@@ -1,0 +1,86 @@
+[General]
+Description=Minecraft
+Opacity=0.92
+Blur=true
+
+[Background]
+Color=24,25,26
+
+[BackgroundIntense]
+Color=36,37,38
+
+[BackgroundFaint]
+Color=18,19,20
+
+[Foreground]
+Color=240,240,240
+
+[ForegroundIntense]
+Color=255,255,255
+
+[ForegroundFaint]
+Color=160,160,160
+
+# Black (Bedrock)
+[Color0]
+Color=38,39,40
+[Color0Intense]
+Color=65,66,67
+[Color0Faint]
+Color=20,21,22
+
+# Red (Redstone)
+[Color1]
+Color=255,85,85
+[Color1Intense]
+Color=255,120,120
+[Color1Faint]
+Color=180,50,50
+
+# Green (Lime / Creeper)
+[Color2]
+Color=85,255,85
+[Color2Intense]
+Color=120,255,120
+[Color2Faint]
+Color=50,180,50
+
+# Yellow (Gold)
+[Color3]
+Color=255,170,0
+[Color3Intense]
+Color=255,200,60
+[Color3Faint]
+Color=180,120,0
+
+# Blue (Lapis)
+[Color4]
+Color=85,85,255
+[Color4Intense]
+Color=120,120,255
+[Color4Faint]
+Color=50,50,180
+
+# Magenta (Purpur)
+[Color5]
+Color=255,85,255
+[Color5Intense]
+Color=255,130,255
+[Color5Faint]
+Color=180,50,180
+
+# Cyan (Diamond)
+[Color6]
+Color=74,237,217
+[Color6Intense]
+Color=120,255,240
+[Color6Faint]
+Color=40,170,150
+
+# White (Quartz)
+[Color7]
+Color=240,240,240
+[Color7Intense]
+Color=255,255,255
+[Color7Faint]
+Color=180,180,180

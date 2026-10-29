@@ -1,0 +1,80 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "small",
+    "padding": {
+      "top": 1,
+      "left": 2,
+      "right": 3
+    }
+  },
+  "display": {
+    "separator": " ⛏  "
+  },
+  "modules": [
+    "title",
+    "separator",
+    {
+      "type": "os",
+      "key": "Biome ",
+      "keyColor": "green"
+    },
+    {
+      "type": "host",
+      "key": "Realm ",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "kernel",
+      "key": "Engine",
+      "keyColor": "cyan"
+    },
+    {
+      "type": "uptime",
+      "key": "Ticks ",
+      "keyColor": "magenta"
+    },
+    {
+      "type": "packages",
+      "key": "Items ",
+      "keyColor": "blue"
+    },
+    {
+      "type": "shell",
+      "key": "Craft ",
+      "keyColor": "green"
+    },
+    {
+      "type": "de",
+      "key": "World ",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "wm",
+      "key": "Vision",
+      "keyColor": "cyan"
+    },
+    {
+      "type": "terminal",
+      "key": "Scroll",
+      "keyColor": "magenta"
+    },
+    {
+      "type": "cpu",
+      "key": "Hearts",
+      "keyColor": "red"
+    },
+    {
+      "type": "gpu",
+      "key": "Shaders",
+      "keyColor": "blue"
+    },
+    {
+      "type": "memory",
+      "key": "Hunger",
+      "keyColor": "yellow"
+    },
+    "break",
+    "colors"
+  ]
+}

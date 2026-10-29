@@ -1,0 +1,15 @@
+[Icon Theme]
+Name=Minecraft-Pixel-Icons
+Comment=Authentic Minecraft Item & Block Pixel Icons for Linux Applications
+Inherits=breeze-dark,breeze,hicolor
+Directories=128x128/apps,128x128/places
+
+[128x128/apps]
+Size=128
+Context=Applications
+Type=Threshold
+
+[128x128/places]
+Size=128
+Context=Places
+Type=Threshold
