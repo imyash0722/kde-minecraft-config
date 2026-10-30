@@ -118,13 +118,18 @@ if [[ "$CLEAN_FILES" =~ ^[Yy]$ ]]; then
     echo -e "${GREEN}✔ Theme assets cleaned.${NC}"
 fi
 
-# 5. Restart plasmashell to apply changes cleanly
-echo -e "${CYAN}Restarting Plasma shell...${NC}"
-if systemctl --user is-active --quiet plasma-plasmashell.service 2>/dev/null; then
-    systemctl --user restart plasma-plasmashell.service 2>/dev/null || true
+# 5. Restart plasmashell if currently in a KDE Plasma session
+if [[ "$XDG_CURRENT_DESKTOP" =~ (KDE|Plasma|plasma) ]]; then
+    echo -e "${CYAN}Restarting Plasma shell...${NC}"
+    if systemctl --user is-active --quiet plasma-plasmashell.service 2>/dev/null; then
+        systemctl --user restart plasma-plasmashell.service 2>/dev/null || true
+    else
+        kquitapp6 plasmashell 2>/dev/null || killall plasmashell 2>/dev/null || true
+        systemctl --user start plasma-plasmashell.service 2>/dev/null || nohup plasmashell >/dev/null 2>&1 &
+    fi
 else
-    kquitapp6 plasmashell 2>/dev/null || killall plasmashell 2>/dev/null || true
-    systemctl --user start plasma-plasmashell.service 2>/dev/null || nohup plasmashell >/dev/null 2>&1 &
+    # In non-KDE environments (such as Hyprland), ensure any lingering plasmashell process is stopped
+    killall plasmashell 2>/dev/null || true
 fi
 
 echo -e "\n${GREEN}✔ Uninstallation complete. System restored to default!${NC}"
