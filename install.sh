@@ -233,9 +233,9 @@ install_wallpapers() {
     mkdir -p "$wall_dir"
     cp "$SCRIPT_DIR"/wallpapers/* "$wall_dir/"
     if command -v plasma-apply-wallpaperimage >/dev/null 2>&1; then
-        plasma-apply-wallpaperimage "$wall_dir/MC-Sunrise.jpg" >/dev/null 2>&1 || true
+        plasma-apply-wallpaperimage "$wall_dir/Minecraft_Tricky_Trials.png" >/dev/null 2>&1 || true
     fi
-    echo -e "${GREEN}✔ Wallpapers installed to $wall_dir and applied MC-Sunrise.jpg.${NC}"
+    echo -e "${GREEN}✔ Wallpapers installed to $wall_dir and applied Minecraft_Tricky_Trials.png.${NC}"
 }
 
 install_sound_theme() {
@@ -299,6 +299,8 @@ install_terminal() {
     local fastfetch_dir="$HOME/.config/fastfetch"
     mkdir -p "$fastfetch_dir"
     cp "$SCRIPT_DIR/fastfetch/config.jsonc" "$fastfetch_dir/"
+    cp "$SCRIPT_DIR/fastfetch/minecraft_block.txt" "$fastfetch_dir/" 2>/dev/null || true
+    cp "$SCRIPT_DIR/fastfetch/minecraft_sword.txt" "$fastfetch_dir/" 2>/dev/null || true
 
     echo -e "${GREEN}✔ Konsole profile and Fastfetch Minecraft config installed.${NC}"
 }

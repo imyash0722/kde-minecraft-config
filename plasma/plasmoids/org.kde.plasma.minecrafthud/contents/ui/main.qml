@@ -14,8 +14,11 @@ PlasmoidItem {
 
     FontLoader {
         id: mcFont
-        source: "../../../../../fonts/Minecraft.otf"
+        source: Qt.resolvedUrl("../../../../../fonts/Minecraft.otf")
     }
+
+    readonly property font defaultMcFont: Qt.font({ family: "Minecraft", pixelSize: 12 })
+    readonly property font activeFont: (mcFont.status === FontLoader.Ready && mcFont.font) ? mcFont.font : defaultMcFont
 
     // Config options
     readonly property bool cfgShowClock: Plasmoid.configuration.showClock ?? true
@@ -95,7 +98,7 @@ PlasmoidItem {
                     id: clock
                     visible: root.cfgShowClock
                     Layout.alignment: Qt.AlignHCenter
-                    mcFont: mcFont.font
+                    mcFont: root.activeFont
                 }
 
                 // Middle: Indicators (Hearts, Food, Armor, XP)
@@ -103,7 +106,7 @@ PlasmoidItem {
                     id: indicators
                     visible: root.cfgShowIndicators
                     Layout.alignment: Qt.AlignHCenter
-                    mcFont: mcFont.font
+                    mcFont: root.activeFont
                     healthPercent: 1.0 - root.currentCpu // High health = low load
                     hungerPercent: 1.0 - root.currentMem // Full food = plenty of RAM
                     armorPercent: 0.8
@@ -116,7 +119,7 @@ PlasmoidItem {
                     id: hotbar
                     visible: root.cfgShowHotbar
                     Layout.alignment: Qt.AlignHCenter
-                    mcFont: mcFont.font
+                    mcFont: root.activeFont
 
                     onSlotTriggered: function(index, cmd) {
                         root.runCommand(cmd);

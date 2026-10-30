@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
+import org.kde.kirigami as Kirigami
 
 Item {
     id: root
@@ -8,17 +9,17 @@ Item {
     property font mcFont
     signal slotTriggered(int index, string command)
 
-    // Slot configurations
+    // Slot configurations using actual application icons
     property var slots: [
-        { name: "Terminal", icon: "../images/diamond_sword.png", cmd: "konsole" },
-        { name: "Browser", icon: "../images/compass.png", cmd: "kde-open https://google.com" },
-        { name: "Files", icon: "../images/chest.png", cmd: "dolphin" },
-        { name: "Editor", icon: "../images/writable_book.png", cmd: "kate" },
-        { name: "Settings", icon: "../images/crafting_table.png", cmd: "systemsettings" },
-        { name: "Monitor", icon: "../images/tnt.png", cmd: "plasma-systemmonitor" },
-        { name: "Audio", icon: "../images/jukebox.png", cmd: "elisa" },
-        { name: "Software", icon: "../images/emerald.png", cmd: "discover" },
-        { name: "Trash", icon: "../images/lava_bucket.png", cmd: "dolphin trash:/" }
+        { name: "Terminal", icon: "utilities-terminal", fallback: "../images/diamond_sword.png", cmd: "konsole" },
+        { name: "Browser", icon: "internet-web-browser", fallback: "../images/compass.png", cmd: "kde-open https://google.com" },
+        { name: "Files", icon: "system-file-manager", fallback: "../images/chest.png", cmd: "dolphin" },
+        { name: "Editor", icon: "accessories-text-editor", fallback: "../images/writable_book.png", cmd: "kate" },
+        { name: "Settings", icon: "preferences-system", fallback: "../images/crafting_table.png", cmd: "systemsettings" },
+        { name: "Monitor", icon: "utilities-system-monitor", fallback: "../images/tnt.png", cmd: "plasma-systemmonitor" },
+        { name: "Audio", icon: "audio-player", fallback: "../images/jukebox.png", cmd: "elisa" },
+        { name: "Discover", icon: "org.kde.discover", fallback: "../images/emerald.png", cmd: "plasma-discover" },
+        { name: "Trash", icon: "user-trash", fallback: "../images/lava_bucket.png", cmd: "dolphin trash:/" }
     ]
 
     readonly property real hotbarWidth: 414
@@ -59,14 +60,12 @@ Item {
 
                 readonly property var slotData: root.slots[index]
 
-                // Slot item icon
-                Image {
+                // Slot item icon: uses real system app icon with pixel fallback
+                Kirigami.Icon {
                     anchors.centerIn: parent
-                    width: 32
-                    height: 32
-                    source: slotData.icon
-                    smooth: false
-                    fillMode: Image.PreserveAspectFit
+                    width: 28
+                    height: 28
+                    source: slotData.icon || slotData.fallback
                 }
 
                 // Slot number (1-9) in authentic Minecraft font
@@ -76,7 +75,7 @@ Item {
                     anchors.margins: 4
                     text: (index + 1).toString()
                     color: "#A0A0A0"
-                    font.family: root.mcFont ? root.mcFont.family : "Monospace"
+                    font.family: root.mcFont ? root.mcFont.family : "Minecraft"
                     font.pixelSize: 10
                     style: Text.Outline
                     styleColor: "#1A1A1A"
