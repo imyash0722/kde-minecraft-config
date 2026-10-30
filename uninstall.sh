@@ -123,13 +123,8 @@ echo -e "${CYAN}Restarting Plasma shell...${NC}"
 if systemctl --user is-active --quiet plasma-plasmashell.service 2>/dev/null; then
     systemctl --user restart plasma-plasmashell.service 2>/dev/null || true
 else
-    if command -v kquitapp6 >/dev/null 2>&1; then
-        kquitapp6 plasmashell 2>/dev/null || killall plasmashell 2>/dev/null || true
-        kstart plasmashell >/dev/null 2>&1 &
-    elif command -v kquitapp5 >/dev/null 2>&1; then
-        kquitapp5 plasmashell 2>/dev/null || killall plasmashell 2>/dev/null || true
-        kstart5 plasmashell >/dev/null 2>&1 &
-    fi
+    kquitapp6 plasmashell 2>/dev/null || killall plasmashell 2>/dev/null || true
+    systemctl --user start plasma-plasmashell.service 2>/dev/null || nohup plasmashell >/dev/null 2>&1 &
 fi
 
 echo -e "\n${GREEN}✔ Uninstallation complete. System restored to default!${NC}"
