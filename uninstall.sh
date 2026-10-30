@@ -42,6 +42,7 @@ elif command -v qdbus >/dev/null 2>&1; then
 fi
 
 # 2. Restore backed up configuration files
+RESTORED_BACKUP=false
 BACKUP_BASE="$HOME/.kde-minecraft-backup"
 if [ -d "$BACKUP_BASE" ]; then
     LATEST_BACKUP=$(ls -td "$BACKUP_BASE"/*/ 2>/dev/null | head -n 1)
@@ -54,33 +55,37 @@ if [ -d "$BACKUP_BASE" ]; then
         fi
         if [[ "$RESTORE_CONFIRM" =~ ^[Yy]$ ]]; then
             echo -e "${CYAN}Restoring configuration files to ~/.config/...${NC}"
-            cp -r "$LATEST_BACKUP"/* "$HOME/.config/" 2>/dev/null || true
+            cp -rf "$LATEST_BACKUP"/* "$HOME/.config/" 2>/dev/null || true
+            rm -f "$HOME/.config/ksplashrc" 2>/dev/null || true
+            RESTORED_BACKUP=true
             echo -e "${GREEN}✔ Config files restored from backup.${NC}"
         fi
     fi
 fi
 
-# 3. Reset KDE themes to default Breeze
-echo -e "${YELLOW}Resetting KDE Plasma themes to default Breeze...${NC}"
+# 3. Fallback reset to Breeze only if no backup was restored
+if [ "$RESTORED_BACKUP" = false ]; then
+    echo -e "${YELLOW}No backup restored; resetting KDE Plasma themes to default Breeze...${NC}"
 
-if command -v plasma-apply-colorscheme >/dev/null 2>&1; then
-    plasma-apply-colorscheme BreezeDark 2>/dev/null || plasma-apply-colorscheme Breeze 2>/dev/null || true
-fi
+    if command -v plasma-apply-colorscheme >/dev/null 2>&1; then
+        plasma-apply-colorscheme BreezeDark 2>/dev/null || plasma-apply-colorscheme Breeze 2>/dev/null || true
+    fi
 
-if command -v plasma-apply-cursortheme >/dev/null 2>&1; then
-    plasma-apply-cursortheme breeze_cursors 2>/dev/null || true
-fi
+    if command -v plasma-apply-cursortheme >/dev/null 2>&1; then
+        plasma-apply-cursortheme breeze_cursors 2>/dev/null || true
+    fi
 
-if command -v plasma-apply-desktoptheme >/dev/null 2>&1; then
-    plasma-apply-desktoptheme breeze-dark 2>/dev/null || plasma-apply-desktoptheme default 2>/dev/null || true
-fi
+    if command -v plasma-apply-desktoptheme >/dev/null 2>&1; then
+        plasma-apply-desktoptheme breeze-dark 2>/dev/null || plasma-apply-desktoptheme default 2>/dev/null || true
+    fi
 
-if command -v kwriteconfig6 >/dev/null 2>&1; then
-    kwriteconfig6 --file ksplashrc --group KSplash --key Theme "org.kde.breeze.desktop" 2>/dev/null || true
-    kwriteconfig6 --file kdeglobals --group Sounds --key Theme "ocean" 2>/dev/null || true
-elif command -v kwriteconfig5 >/dev/null 2>&1; then
-    kwriteconfig5 --file ksplashrc --group KSplash --key Theme "org.kde.breeze.desktop" 2>/dev/null || true
-    kwriteconfig5 --file kdeglobals --group Sounds --key Theme "ocean" 2>/dev/null || true
+    if command -v kwriteconfig6 >/dev/null 2>&1; then
+        kwriteconfig6 --file ksplashrc --group KSplash --key Theme "org.kde.breeze.desktop" 2>/dev/null || true
+        kwriteconfig6 --file kdeglobals --group Sounds --key Theme "ocean" 2>/dev/null || true
+    elif command -v kwriteconfig5 >/dev/null 2>&1; then
+        kwriteconfig5 --file ksplashrc --group KSplash --key Theme "org.kde.breeze.desktop" 2>/dev/null || true
+        kwriteconfig5 --file kdeglobals --group Sounds --key Theme "ocean" 2>/dev/null || true
+    fi
 fi
 
 # Unregister plasmoids with kpackagetool if available
